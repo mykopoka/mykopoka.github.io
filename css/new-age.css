@@ -373,6 +373,14 @@ section.contact ul.list-social li.social-google-plus a:hover {
   background-color: #d73925;
 }
 
+section.contact ul.list-social li.social-whatsapp a {
+  background-color: #24D366;
+}
+
+section.contact ul.list-social li.social-whatsapp a:hover {
+  background-color: #24D366;
+}
+
 footer {
   padding: 25px 0;
   text-align: center;
