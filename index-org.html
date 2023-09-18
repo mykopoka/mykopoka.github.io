@@ -3,6 +3,48 @@
 
 <head>
 
+  <!-- Segment CDP -->
+  <script>
+    ! function () {
+      var analytics = window.analytics = window.analytics || [];
+      if (!analytics.initialize)
+        if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice.");
+        else {
+          analytics.invoked = !0;
+          analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset",
+            "group", "track", "ready", "alias", "debug", "page", "once", "off", "on"
+          ];
+          analytics.factory = function (t) {
+            return function () {
+              var e = Array.prototype.slice.call(arguments);
+              e.unshift(t);
+              analytics.push(e);
+              return analytics
+            }
+          };
+          for (var t = 0; t < analytics.methods.length; t++) {
+            var e = analytics.methods[t];
+            analytics[e] = analytics.factory(e)
+          }
+          analytics.load = function (t, e) {
+            var n = document.createElement("script");
+            n.type = "text/javascript";
+            n.async = !0;
+            n.src = "https://cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js";
+            var a = document.getElementsByTagName("script")[0];
+            a.parentNode.insertBefore(n, a);
+            analytics._loadOptions = e
+          };
+          analytics.SNIPPET_VERSION = "4.1.0";
+          analytics.load("2J6Tbq6QtQuNc757C8y2vxLGj4rtw0yM");
+          analytics.page();
+        }
+    }();
+  </script>
+
+  <!-- BlueConic CDP -->
+  <script src="//cdn.blueconic.net/ntkndns.js"></script>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110400296-1"></script>
   <script>
@@ -16,31 +58,36 @@
     gtag('config', 'UA-110400296-1');
   </script>
 
-  <!-- Messenger Chat Plugin Code -->
-  <div id="fb-root"></div>
-  <div id="fb-customer-chat" class="fb-customerchat"></div>
-
+  <!-- Facebook Pixel Code -->
   <script>
-    var chatbox = document.getElementById('fb-customer-chat');
-    chatbox.setAttribute("page_id", "702415219849920"); chatbox.setAttribute("attribution", "biz_inbox");
+    ! function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1272077476225642');
+    fbq('track', 'PageView');
   </script>
-
-  <script>
-    window.fbAsyncInit = function () {
-      FB.init({
-        xfbml: true,
-        version: 'v17.0'
-      });
-    };
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js'; fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1272077476225642&ev=PageView&noscript=1" /></noscript>
+  <!-- End Facebook Pixel Code -->
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description"
-    content="Kopoka - Absensi Mobile, Payroll dan HRIS
+  <meta name="description" content="Kopoka - Absensi Mobile, Payroll dan HRIS
     
   Kopoka adalah cara baru untuk menjaga dan meningkatkan keterikatan (engagement) di organisasi anda. Fitur utama Kopoka adalah absensi dan payroll, namun selain itu Kopoka juga memiliki fitur HRIS yang lengkap.
   
@@ -68,7 +115,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <title>Kopoka - Absensi Mobile, Payroll dan HRIS</title>
-
+  
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -387,8 +434,7 @@
     <div class="container">
       <h2>We
         <i class="fas fa-heart"></i>
-        Kopoka!
-      </h2>
+        Kopoka!</h2>
 
       <div class="col-lg-12 text-center">
         <div class="navy-line"></div>
@@ -474,7 +520,7 @@
     // add popup to the marker
     marker.bindPopup(
       "<b><a href=\"https://www.google.com/maps/place/Kopoka+(PT+Kopoka+Solusi+Indonesia)/@-6.177654,106.7863531,17z/data=!3m1!4b1!4m5!3m4!1s0x2e69f7b0cc8191eb:0x26aa41da961dad2c!8m2!3d-6.1776706!4d106.7885561\">PT Kopoka Solusi Indonesia</a></b><br />Garden Shopping Arcade Blok C9 AW<br />Podomoro City"
-    ).openPopup();
+      ).openPopup();
   </script>
 
 
@@ -490,9 +536,9 @@
       // The map, centered at Uluru
       var map = new google.maps.Map(
         document.getElementById('map'), {
-        zoom: 15,
-        center: uluru
-      });
+          zoom: 15,
+          center: uluru
+        });
       // The marker, positioned at Uluru
       var marker = new google.maps.Marker({
         position: uluru,
@@ -503,7 +549,7 @@
 
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCyLf1V1e_ZSCgjcY9aXIdW-LTJlwHqSZw&callback=initMap">
-    </script>
+  </script>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -519,6 +565,23 @@
   <script>
     new WOW().init();
   </script>
+
+
+  <!--Start of Tawk.to Script-->
+  <!--
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5a13fd16198bd56b8c03c632/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+-->
+  <!--End of Tawk.to Script-->
 
 </body>
 
