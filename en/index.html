@@ -329,22 +329,26 @@
 	
 	
 
-<script>
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var uluru = {lat: -6.177684, lng: 106.788571};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 15, center: uluru});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
-}
-    </script>
-
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCyLf1V1e_ZSCgjcY9aXIdW-LTJlwHqSZw&callback=initMap">
-    </script>	
+  <!-- OpenMap -->
+  <script>
+    // position we will use later
+    var lat = -6.177684;
+    var lon = 106.788571;
+    // initialize map
+    map = L.map('mapDiv').setView([lat, lon], 17);
+    // set map tiles source
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(map);
+    // add marker to the map
+    marker = L.marker([lat, lon]).addTo(map);
+    // add popup to the marker
+    marker.bindPopup(
+      "<b><a href=\"https://www.google.com/maps/place/Kopoka+(PT+Kopoka+Solusi+Indonesia)/@-6.177654,106.7863531,17z/data=!3m1!4b1!4m5!3m4!1s0x2e69f7b0cc8191eb:0x26aa41da961dad2c!8m2!3d-6.1776706!4d106.7885561\">PT Kopoka Solusi Indonesia</a></b><br />Garden Shopping Arcade Blok C9 AW<br />Podomoro City"
+    ).openPopup();
+  </script>
+  
 	
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
